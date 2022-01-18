@@ -1,0 +1,22 @@
+package com.btkAkademi.rentACar.core.utilities.business;
+
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+
+public class BusinessRules {
+	public static Result run(Result ...logics) {
+		for (Result logic : logics) {
+			if(!logic.isSuccess()) {
+				return logic;
+				
+			}
+		}
+		return null;
+	}
+
+	public static Result run(Result checkIfCustomerExist, boolean checkIfCarIsInMaintenance, Result checkIfCityExist,
+			Result checkIfCityExist2, Result checkIfCarIsRented) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

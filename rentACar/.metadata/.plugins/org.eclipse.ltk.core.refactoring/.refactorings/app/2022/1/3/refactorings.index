@@ -1,0 +1,24 @@
+1641888945626	Delete element
+1641889662345	Delete element
+1641892884800	Rename package 'com.btkAkademi.rentACar.core.utilities.result'
+1641988024010	Delete element
+1641988207827	Delete element
+1642056735291	Rename type 'MaintenanceService'
+1642056795457	Delete element
+1642056815746	Delete element
+1642059674475	Delete element
+1642074414679	Delete element
+1642143705090	Rename compilation unit 'AdditionalServices.java'
+1642143885491	Rename compilation unit 'AdditionalService.java'
+1642146598653	Delete element
+1642157427917	Rename compilation unit 'carDto.java'
+1642157895418	Delete element
+1642369128537	Rename type 'CreateCardDetailRequest'
+1642369151380	Delete element
+1642369198890	Delete element
+1642370235753	Delete element
+1642370569252	Delete element
+1642370608643	Move compilation unit
+1642370636807	Rename package 'com.btkAkademi.rentACar.business.requests.AdditionalServiceRequests'
+1642370807472	Rename type 'AdditionalServiceDto'
+1642372193716	Rename package 'com.btkAkademi.rentACar.core.utilities.externalService'

@@ -1,0 +1,22 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import com.btkAkademi.rentACar.business.abstracts.PaymentService;
+import com.btkAkademi.rentACar.business.requests.paymentRequests.CreatePaymentRequest;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+import com.btkAkademi.rentACar.dataAccess.abstracts.PaymentDao;
+
+@Service
+public class PaymentManager implements PaymentService {
+	private PaymentDao paymentDao;
+	private ModelMapperService modelMapperService;
+	
+
+	@Override
+	public Result add(CreatePaymentRequest createPaymentRequest) {
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.btkAkademi.rentACar.business.abstracts;
+
+public interface CarMaintenanceService {
+	DataResult<List<CarMaintenanceDto>> getAll();
+
+	Result add(@Valid CreateCarMaintenanceRequest createCarMaintenanceRequest);
+	
+	boolean checkIfCarIsInMaintenance (int carId) ;
+}
+
+

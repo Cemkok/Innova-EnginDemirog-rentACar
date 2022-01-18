@@ -1,0 +1,48 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import com.btkAkademi.rentACar.business.abstracts.CorporateCustomerService;
+import com.btkAkademi.rentACar.business.requests.corporateCustomerRequest.CreateCorporateCustomerRequest;
+import com.btkAkademi.rentACar.core.utilities.business.BusinessRules;
+import com.btkAkademi.rentACar.core.utilities.mapping.ModelMapperService;
+import com.btkAkademi.rentACar.core.utilities.results.ErrorResult;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+import com.btkAkademi.rentACar.core.utilities.results.SuccessResult;
+import com.btkAkademi.rentACar.dataAccess.abstracts.CorporateCustomerDao;
+import com.btkAkademi.rentACar.entities.concretes.CorporateCustomer;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CorporateCustomerManager implements CorporateCustomerService {
+    private CorporateCustomerDao corporateCustomerDao;
+    private ModelMapperService modelMapperService;
+
+    public CorporateCustomerManager(CorporateCustomerDao corporateCustomerDao, ModelMapperService modelMapperService) {
+        this.corporateCustomerDao = corporateCustomerDao;
+        this.modelMapperService = modelMapperService;
+    }
+
+    @Override
+    public Result add(CreateCorporateCustomerRequest createCorporateCustomerRequest) {
+        var corporateCustomer=this.modelMapperService.forRequest().map(createCorporateCustomerRequest, CorporateCustomer.class);
+        var response= BusinessRules.run(checkIfCompanyNameExists(createCorporateCustomerRequest.getCompanyName()),checkIfEmailExists(createCorporateCustomerRequest.getEmail()));
+        if(response==null){
+            this.corporateCustomerDao.save(corporateCustomer);
+            return new SuccessResult();
+        }return new ErrorResult();
+
+    }
+    private Result checkIfEmailExists(String email){
+        var corporateCustomer=this.corporateCustomerDao.getCorporateCustomerByEmail(email);
+        if(corporateCustomer==null){
+            return new SuccessResult();
+        }return new ErrorResult();
+    }
+    private Result checkIfCompanyNameExists(String companyName){
+        var corporateCustomer=this.corporateCustomerDao.getCorporateCustomerByCompanyName(companyName);
+        if(corporateCustomer==null){
+            return new SuccessResult();
+
+        }return  new ErrorResult();
+    }
+
+}

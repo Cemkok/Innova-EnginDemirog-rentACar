@@ -1,0 +1,24 @@
+package com.btkAkademi.rentACar.business.abstracts;
+
+
+import java.util.List;
+
+
+
+import com.btkAkademi.rentACar.business.dtos.RentalListDto;
+import com.btkAkademi.rentACar.business.requests.rentalRequest.CreateRentalRequest;
+import com.btkAkademi.rentACar.core.utilities.results.DataResult;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+import com.btkAkademi.rentACar.entities.concretes.Rental;
+
+public interface RentalService {
+	DataResult<List<RentalListDto>>  getAll(int pageNo,int pageSize);
+	Result add(CreateRentalRequest createRentalRequest);	
+	Result checkIfCarIsRented(int carId);
+	DataResult<Rental> findRentalById(int id);
+	DataResult<RentalListDto> getById(Integer id);
+	DataResult<Rental> getByCarId(Integer id);
+	DataResult<List<RentalListDto>> getAll(Integer pageNo, Integer pageSize);
+
+
+}

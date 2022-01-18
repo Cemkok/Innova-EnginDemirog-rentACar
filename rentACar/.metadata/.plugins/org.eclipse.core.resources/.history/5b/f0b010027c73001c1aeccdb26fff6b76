@@ -1,0 +1,35 @@
+package com.btkAkademi.rentACar.business.requests.carRequests;
+
+import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import com.btkAkademi.rentACar.business.constants.Messages;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreateCarRequest {
+	
+	@NotBlank
+	@Size(min=4, max=4, message=Messages.InvalidModelYear)	
+	private int modelYear;
+	
+	@NotBlank
+	@Size(min=3, max=25, message=Messages.InvalidCarDescription)
+	private String description;
+	
+	@NotBlank
+	@Size(min=3, max=4, message=Messages.InvalidCarFindexScore)
+	private int findexScore;
+	
+	@NotBlank
+	@Size(min=3, max=4, message=Messages.InvalidCarKilometer)
+	private int kilometer;
+	
+	
+}

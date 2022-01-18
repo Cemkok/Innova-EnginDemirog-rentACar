@@ -1,0 +1,49 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.btkAkademi.rentACar.core.utilities.mapping.ModelMapperService;
+import com.btkAkademi.rentACar.dataAccess.abstracts.CarClassDao;
+
+@Service
+public class CarClassManager {
+		private ModelMapperService modelMapperService;
+		private CarClassDao carClassDao;
+		
+		@Autowired
+		public CarClassManager(ModelMapperService modelMapperService, CarClassDao carClassDao) {
+			super();
+			this.modelMapperService = modelMapperService;
+			this.carClassDao =carClassDao;
+		}
+
+		@Override
+		public DataResult<SegmentListDto> findById(int id) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Result add(CreateSegmentRequest createSegmentRequest) {
+			Segment segment = this.modelMapperService.forRequest().map(createSegmentRequest, Segment.class);
+			this.segmentDao.save(segment);
+			return new SuccessResult(Messages.invoiceAdded);
+		}
+
+		@Override
+		public Result update(UpdateCarClassRequest createSegmentRequest) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Result delete(int id) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
+
+
+}

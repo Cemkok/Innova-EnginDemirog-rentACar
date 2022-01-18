@@ -1,0 +1,35 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import com.btkAkademi.rentACar.business.abstracts.RentalService;
+import com.btkAkademi.rentACar.business.constants.Messages;
+import com.btkAkademi.rentACar.business.requests.brandRequests.CreateBrandRequest;
+import com.btkAkademi.rentACar.business.requests.rentalRequest.CreateRentalRequest;
+import com.btkAkademi.rentACar.core.utilities.business.BusinessRules;
+import com.btkAkademi.rentACar.core.utilities.mapping.ModelMapperService;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+import com.btkAkademi.rentACar.core.utilities.results.SuccessResult;
+import com.btkAkademi.rentACar.entities.concretes.Brand;
+import com.btkAkademi.rentACar.entities.concretes.Rental;
+@Service
+public class RentalManager implements RentalService {
+	private Rental rental;
+	private ModelMapperService modelMapperService;
+	
+	@Override
+	public Result add(CreateRentalRequest createRentalRequest) {
+	 //iş moturu 
+		Result result=BusinessRules.run();
+		//iş motorunu kontrol ediyor
+		if(result!=null) {
+			return result;
+		}
+		
+		Brand brand = modelMapperService.forRequest().map(createBrandRequest, Brand.class);
+		this.brandDao.save(brand);
+		return new SuccessResult(Messages.brandAdded);
+	}
+	
+
+}

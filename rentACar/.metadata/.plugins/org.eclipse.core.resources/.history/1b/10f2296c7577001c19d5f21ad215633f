@@ -1,0 +1,5 @@
+package com.btkAkademi.rentACar.core.utilities.adapters.creditScore.abstracts;
+
+public interface CreditScoreAdapterService {
+
+}

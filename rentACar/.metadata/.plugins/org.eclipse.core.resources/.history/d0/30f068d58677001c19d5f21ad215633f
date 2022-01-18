@@ -1,0 +1,25 @@
+package com.btkAkademi.rentACar.business.requests.individualCustomerRequest;
+
+import java.time.LocalDate;
+
+
+import javax.validation.constraints.NotBlank;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreateIndividualCustomerRequest {
+	@NotBlank
+	private String firstName;
+	@NotBlank
+	private String lastName;
+	@NotBlank
+	private LocalDate birthDate;
+	@NotBlank
+	private String email;
+	@NotBlank
+	private String password;
+}

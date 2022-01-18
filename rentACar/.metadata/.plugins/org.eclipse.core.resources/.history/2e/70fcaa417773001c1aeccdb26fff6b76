@@ -1,0 +1,12 @@
+package com.btkAkademi.rentACar.business.constants;
+
+public class Messages {
+	public static final String InvalidBrandName="invalid.brand.name";
+	public static final String brandAdded = "brand.added";
+	public static final String colorAdded = "color.added";
+	public static final String brandNameExists = "brand.name.exists";
+	public static final String colorNameExists = "color.name.exists";
+	public static final String brandLimitExceeded = "brand.limit.exceeded";
+	public static final String InvalidColorName="invalid.color.name";
+
+}
